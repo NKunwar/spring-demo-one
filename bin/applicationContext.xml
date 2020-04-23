@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- Define your beans here -->
+
+	<!-- define the dependency -->
+	<!-- <bean id="myCoach" class="com.luv2code.springdemo.TrackCoach"> </bean> -->
+
+	<bean id="myFortune" class="com.luv2code.springdemo.HappyFortuneService">
+	</bean>
+	
+	<!-- <bean id="myCoach" class="com.luv2code.springdemo.BaseballCoach"> </bean> -->
+	<bean id="myCoach" class="com.luv2code.springdemo.BaseballCoach">	
+		<!-- setup Constructor Injection -->
+		<constructor-arg ref="myFortune"></constructor-arg>
+	</bean>   <!-- Here Spring will create coach object , call the constructor and then will pass in that fortune reference -->
+	
+	<!-- <bean id="myCoach" class="com.luv2code.springdemo.TrackCoach">
+		<constructor-arg ref="myFortune"></constructor-arg>
+	</bean> -->
+	
+</beans>
+
+
+
+
+
